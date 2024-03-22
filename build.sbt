@@ -16,14 +16,14 @@ libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-core" % sparkVersion,
   "org.apache.spark" %% "spark-sql" % sparkVersion,
 
-  // streaming
+  // // streaming
   "org.apache.spark" %% "spark-streaming" % sparkVersion,
 
   // streaming-kafka
   "org.apache.spark" % "spark-sql-kafka-0-10_2.13" % sparkVersion,
 
   // low-level integrations
-  "org.apache.spark" %% "spark-streaming-kafka-0-10" % "3.5.1",
+  "org.apache.spark" %% "spark-streaming-kafka-0-10" % sparkVersion,
   "org.apache.spark" %% "spark-streaming-kinesis-asl" % sparkVersion,
   "com.datastax.spark" %% "spark-cassandra-connector" % cassandraConnectorVersion,
 
@@ -37,4 +37,9 @@ libraryDependencies ++= Seq(
   // kafka
   "org.apache.kafka" %% "kafka" % kafkaVersion,
   "org.apache.kafka" % "kafka-streams" % kafkaVersion
+)
+
+javaOptions ++= Seq(
+  "--add-opens=java.base/sun.nio.ch=ALL-UNNAMED"
+  // "--add-opens=java.base/sun.nio.cs=ALL-UNNAMED",
 )
